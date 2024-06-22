@@ -6,23 +6,21 @@
 #include "pessoa.h"
 
 using namespace std;
-
+// ------- INICIALIZAR CONSTRUTOR ----------- //
 Person::Person(){};
 
 // ------- METODOS GETERS ----------- //
 int Person::getCodigo(){
     return codigo;
 }
-
 string Person::getNome(){
     return nome;
 }
-
 string Person::getTelefone(){
     return telefone;
 }
-// ------- METODOS SETERS ----------- //
 
+// ------- METODOS SETERS ----------- //
 void Person::setCodigo(){
     int code;
     printf("Digite um codigo:");

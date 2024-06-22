@@ -8,9 +8,9 @@ CXXFLAGS = -Wall -g
 TARGET = main.out
 
 # Lista de arquivos fonte
-SRCS = main.cpp pessoa.cpp
+SRCS = main.cpp pessoa.cpp funcionario.cpp cliente.cpp
 
-HEADERS = pessoa.h
+HEADERS = pessoa.h funcionario.h cliente.h
 
 # Regra padrão para compilar o executável
 $(TARGET): $(SRCS) $(HEADERS)

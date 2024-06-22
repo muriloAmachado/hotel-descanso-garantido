@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string>
 #include <cstdio>
-#include "pessoa.h"
+#include "cliente.h"
 
 
 // void escreverFuncionario(const char *nome, const char *cargo, float salario) {
@@ -24,13 +24,12 @@
 
 int main() {
 
-    string nome;
-
-    Person a;
+    Cliente a;
     a.setCodigo();
     a.setNome();
     a.setTelefone();
-    printf("Codigo: %i\nNome: %s\nTelefone: %s\n", a.getCodigo(), a.getNome().c_str(), a.getTelefone().c_str());
+    a.setEndereco();
+    printf("Codigo: %i\nNome: %s\nTelefone: %s\nEndereço: %s\n", a.getCodigo(), a.getNome().c_str(), a.getTelefone().c_str(),  a.getEndereco().c_str());
 
     return 0;
 }
