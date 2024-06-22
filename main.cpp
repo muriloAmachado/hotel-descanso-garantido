@@ -16,7 +16,7 @@ void escreverFuncionario(const char *nome, const char *cargo, float salario) {
 }
 
 int main() {
-    
+
     papapa();
     
     escreverFuncionario("João Silva", "Desenvolvedor", 3500.50);
