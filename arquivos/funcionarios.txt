@@ -1,0 +1,16 @@
+Nome: João Silva
+Cargo: Desenvolvedor
+Salário: 3500.50
+
+Nome: Maria Souza
+Cargo: Gerente
+Salário: 5500.00
+
+Nome: João Silva
+Cargo: Desenvolvedor
+Salário: 3500.50
+
+Nome: Maria Souza
+Cargo: Gerente
+Salário: 5500.00
+
