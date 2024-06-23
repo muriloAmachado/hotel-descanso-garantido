@@ -6,19 +6,13 @@
 #include "cliente.h"
 #include "funcionario.h"
 
-void menu();
+void menu(int x);
 void menuCliente();
 void menuFuncionario();
 void menuQuartos();
 void menuEstadia();
 
 int main() {
-
-    menu();
-    return 0;
-}
-
-void menu(){
 
     int option;
         cout << "----------------------" << endl;
@@ -32,8 +26,14 @@ void menu(){
         cout << "0 - Sair" << endl;
         cout << "Escolha a opção: ";
         cin >> option;
+    menu(option);
 
-        switch (option)
+    return 0;
+}
+
+void menu(int x){
+
+        switch (x)
         {
         case 1:
             menuCliente();
@@ -74,7 +74,7 @@ void menuCliente (){
         break;
 
     case 9:
-        return menu();
+        return;
         break;
     }
 }
@@ -101,7 +101,7 @@ void menuFuncionario (){
         
         break;
     case 9:
-        return menu(); 
+        return; 
         break;
     }
 }
@@ -126,7 +126,7 @@ void menuQuartos (){
         cout << "2kkkk" << endl; 
         break;
     case 9:
-        return menu(); 
+        return; 
         break;
     }
 }
@@ -151,7 +151,7 @@ void menuEstadia (){
         cout << "2kkkk" << endl; 
         break;
     case 9:
-        return menu(); 
+        return; 
         break;
     }
 }
