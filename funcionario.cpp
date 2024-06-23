@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits>
+#include <fstream>
 #include "funcionario.h"
 
 // ------- INICIALIZAR CONSTRUTOR ----------- //
@@ -97,3 +98,62 @@ void Funcionario::newFuncionario(){
         cadFuncionario(cod, name.c_str(), tel.c_str(), cargo.c_str(), salario);
     };
 };
+
+// ------- PESQUISAR CLIENTE ---------- //
+bool Funcionario::searchExists(Funcionario& funcionarioEncontrado) {
+     
+     int code;
+
+     cout << "Digite o código do cliente que deseja encontrar: ";
+     cin >> code;
+
+    ifstream file("arquivos/funcionarios.txt");
+    if (!file.is_open()) {
+        cerr << "Não foi possível abrir o arquivo clientes.txt\n";
+        return false;
+    }
+
+    string line;
+    int cod;
+    float salario;
+    string nome, telefone, cargo;
+
+    while (getline(file, line)) {
+        if (line.find("Código: ") == 0) {
+            sscanf(line.c_str(), "Código: %d", &cod);
+            if (cod == code) {
+                if (getline(file, line) && line.find("Nome: ") == 0) {
+                    nome = line.substr(6); // Ignora "Nome: "
+                }
+                if (getline(file, line) && line.find("Telefone: ") == 0) {
+                    telefone = line.substr(10); // Ignora "Telefone: " 
+                }
+                if (getline(file, line) && line.find("Cargo: ") == 0) {
+                    cargo = line.substr(7); // Ignora "Cargo: "
+                }
+                if (getline(file, line) && line.find("Salario: ") == 0) {
+                    sscanf(line.c_str(), "Salario: %f", &salario);
+                }
+
+                funcionarioEncontrado.setCodigo(cod);
+                funcionarioEncontrado.setNome(nome);
+                funcionarioEncontrado.setTelefone(telefone);
+                funcionarioEncontrado.setCargo(cargo);
+                funcionarioEncontrado.setSalario(salario);
+
+                cout << "Funcionário encontrado:\n";
+                cout << "Código: " << funcionarioEncontrado.getCodigo() << "\n";
+                cout << "Nome: " << funcionarioEncontrado.getNome() << "\n";
+                cout << "Telefone: " << funcionarioEncontrado.getTelefone() << "\n";
+                cout << "Cargo: " << funcionarioEncontrado.getCargo() << "\n";
+                cout << "Salario: " << funcionarioEncontrado.getSalario() << "\n";
+
+                file.close();
+                return true;
+            }
+        }
+    }
+
+    file.close();
+    return false; // Cliente não encontrado
+}

@@ -20,5 +20,6 @@ class Funcionario: public Person
         void setCargo(string& x);
         void setSalario(float x);
         void newFuncionario();
+        bool searchExists(Funcionario& funcionarioEncontrado);
 };
 #endif
