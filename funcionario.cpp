@@ -39,6 +39,27 @@ void cadFuncionario(int cod,const char *nome,const char *telefone,const char *ca
     fclose(file);
 };
 
+// ------- VERIFICAR CÓDIGO ----------- //
+bool functionaryExists(int cod) {
+    FILE *file = fopen("arquivos/funcionarios.txt", "r");
+    if (file == NULL) {
+        return false;
+    }
+    int existingCod;
+    char buffer[256];
+
+    while (fgets(buffer, sizeof(buffer), file)) {
+        if (sscanf(buffer, "Código: %d", &existingCod) == 1) {
+            if (existingCod == cod) {
+                fclose(file);
+                return true;
+            }
+        }
+    }
+    fclose(file);
+    return false;
+}
+
 // ------- CHAMADA DE MÉTODOS PARA GRAVAR OS DADOS DO NOVO CLIENTE ---------- //
 void Funcionario::newFuncionario(){
 
@@ -68,5 +89,12 @@ void Funcionario::newFuncionario(){
     cin.ignore();
     setSalario(salario);
 
-    cadFuncionario(cod, name.c_str(), tel.c_str(), cargo.c_str(), salario);
+    if(functionaryExists(cod) == true){
+        cout << "Já existe um cliente com este código" << endl;
+        newFuncionario();
+    }
+    else{
+        cadFuncionario(cod, name.c_str(), tel.c_str(), cargo.c_str(), salario);
+    };
+
 };

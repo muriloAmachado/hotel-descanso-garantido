@@ -31,6 +31,27 @@ void cadClient(int cod,const char *nome,const char *telefone,const char *enderec
     fclose(file);
 };
 
+// ------- VERIFICAR CÓDIGO ----------- //
+bool clientExists(int cod) {
+    FILE *file = fopen("arquivos/clientes.txt", "r");
+    if (file == NULL) {
+        return false;
+    }
+    int existingCod;
+    char buffer[256];
+
+    while (fgets(buffer, sizeof(buffer), file)) {
+        if (sscanf(buffer, "Código: %d", &existingCod) == 1) {
+            if (existingCod == cod) {
+                fclose(file);
+                return true;
+            }
+        }
+    }
+    fclose(file);
+    return false;
+}
+
 // ------- CHAMADA DE MÉTODOS PARA GRAVAR OS DADOS DO NOVO CLIENTE ---------- //
 void Cliente::newClient(){
 
@@ -54,5 +75,11 @@ void Cliente::newClient(){
     getline(cin, end);
     setEndereco(end);
 
-    cadClient(cod, name.c_str(), tel.c_str(), end.c_str());
+    if(clientExists(cod) == true){
+        cout << "Já existe um cliente com este código" << endl;
+        newClient();
+    }
+    else{
+        cadClient(cod, name.c_str(), tel.c_str(), end.c_str());
+    };
 };

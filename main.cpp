@@ -11,27 +11,13 @@ void menuCliente();
 void menuFuncionario();
 void menuQuartos();
 void menuEstadia();
-// void escreverFuncionario(const char *nome, const char *cargo, float salario) {
-    
-//     FILE *file = fopen("arquivos/funcionarios.txt", "a");
-//     if (file == NULL) {
-//         perror("Erro ao abrir o arquivo");
-//         exit(EXIT_FAILURE);
-//     }
-
-//     fprintf(file, "Nome: %s\nCargo: %s\nSalário: %.2f\n\n", nome, cargo, salario);
-
-//     fclose(file);
-// }
-
-// escreverFuncionario("João Silva", "Desenvolvedor", 3500.50);
-// escreverFuncionario("Maria Souza", "Gerente", 5500.00);
 
 int main() {
 
     menu();
-
+    return 0;
 }
+
 void menu(){
 
     int option;
@@ -78,16 +64,17 @@ void menuCliente (){
     cout << "Escolha a opção: ";
     cin >> optionMenuCliente;
 
-    switch (optionMenuCliente)
-    {
+    switch (optionMenuCliente){
     case 1:
         cliente.newClient();
         break;
+
     case 2:
-        cout << "2kkkk" << endl; 
+     
         break;
+
     case 9:
-        return menu(); 
+        return menu();
         break;
     }
 }
@@ -111,7 +98,7 @@ void menuFuncionario (){
         funcionario.newFuncionario(); 
         break;
     case 2:
-        cout << "2kkkk" << endl; 
+        
         break;
     case 9:
         return menu(); 
