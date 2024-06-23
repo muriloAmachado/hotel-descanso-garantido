@@ -1,4 +1,4 @@
-3
+4
 
 ID Estadia: 1
 ID Cliente: 1
@@ -20,3 +20,10 @@ Número do Quarto: 1
 Data de Entrada: 02-01-2024
 Data de Saída: 03-01-2024
 Diárias: 1
+
+ID Estadia: 4
+ID Cliente: 1
+Número do Quarto: 123
+Data de Entrada: 01/04/2024
+Data de Saída: 04/04/2024
+Diárias: 3

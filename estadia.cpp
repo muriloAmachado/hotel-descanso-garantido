@@ -203,9 +203,15 @@ int acharQuarto(int numHospedes, string dataEntrada, string dataSaida) {
     string line;
     int numeroQuarto, capacidade;
     while (getline(file, line)) {
-        if (sscanf(line.c_str(), "Número do Quarto: %d", &numeroQuarto) == 1) {
+        if (sscanf(line.c_str(), "Número: %d", &numeroQuarto) == 1) {
             getline(file, line);
-            capacidade = stoi(line.substr(11));
+            // if (getline(file, line) && line.find("Hóspedes: ") == 0) {
+            //         capacidade = stoi(line.substr(10)); 
+            //     }
+            capacidade = line.find("Hóspedes: ") == 0 ? stoi(line.substr(10)) : 0;
+            printf("Capacidade: %d\n", capacidade);
+            printf("numHostedes: %d\n", numHospedes);
+            printf("estadiaDisponivel: %d\n", estadiaDisponivel(numeroQuarto, dataEntrada, dataSaida));
             if (capacidade >= numHospedes && estadiaDisponivel(numeroQuarto, dataEntrada, dataSaida)) {
                 return numeroQuarto;
             }
@@ -225,14 +231,11 @@ void Estadia::newEstadia() {
     cout << "ID Cliente: ";
     cin >> idCliente;
     const int diarias = dateIntoDays(dataSaida) - dateIntoDays(dataEntrada);
-    if(!estadiaDisponivel(numeroQuarto, dataEntrada, dataSaida)) {
-        cout << "Estadia não disponível para o quarto selecionado\n";
-        return;
-    }
     int quartoEncontrado = acharQuarto(numHospedes, dataEntrada, dataSaida);
     if(quartoEncontrado == -1) {
         cout << "Não há quartos disponíveis para a quantidade de hóspedes\n";
         return;
     }
     cadEstadia(idCliente, quartoEncontrado, dataEntrada, dataSaida, diarias);
+    cout << "Você foi alocado no quarto " << quartoEncontrado << "\n";
 }
