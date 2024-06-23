@@ -1,5 +1,5 @@
-#ifndef PERSSOA_H
-#define PERSSOA_H
+#ifndef QUARTOS_H
+#define QUARTOS_H
 
 #include <iostream>
 #include <string>
@@ -21,9 +21,10 @@ class Quarto
         float getDiaria();
         bool getStatus();
         //-------------------//
-        void setNumQuarto();
-        void setHospedes();
-        void setDiaria();
-        void setStatus();
+        void setNumQuarto(int numero);
+        void setHospedes(int capacidade);
+        void setDiaria(float valorDiaria);
+        void setStatus(bool x);
+        void newQuarto();
 };
 #endif

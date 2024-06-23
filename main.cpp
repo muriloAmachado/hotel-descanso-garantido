@@ -5,6 +5,8 @@
 #include <cstdio>
 #include "cliente.h"
 #include "funcionario.h"
+#include "quartos.h"
+#include "estadia.h"
 
 void menu(int x);
 void menuCliente();
@@ -107,6 +109,8 @@ void menuFuncionario (){
 }
 
 void menuQuartos (){
+    Quarto quarto;
+
     int optionMenuQuartos;
 
     cout << "1 - Cadastrar novo quarto" << endl;
@@ -120,7 +124,7 @@ void menuQuartos (){
     switch (optionMenuQuartos)
     {
     case 1:
-        cout << "kkkk" << endl; 
+        quarto.newQuarto(); 
         break;
     case 2:
         cout << "2kkkk" << endl; 
@@ -145,7 +149,7 @@ void menuEstadia (){
     switch (optionMenuEstadia)
     {
     case 1:
-        cout << "kkkk" << endl; 
+        estadia.newEstadia(); 
         break;
     case 2:
         cout << "2kkkk" << endl; 
