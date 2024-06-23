@@ -15,8 +15,8 @@ string Cliente::getEndereco(){
 
 // ------- METODOS SETERS ----------- //
 void Cliente::setEndereco(){
-   string x;
-    printf("Endereço do cliente:");
+    string x;
+    cout << "Endereço do cliente:" << endl;
     getline(cin, x);
     endereco = x;
 };

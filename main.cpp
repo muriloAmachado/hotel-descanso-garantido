@@ -4,6 +4,7 @@
 #include <string>
 #include <cstdio>
 #include "cliente.h"
+#include "funcionario.h"
 
 
 // void escreverFuncionario(const char *nome, const char *cargo, float salario) {

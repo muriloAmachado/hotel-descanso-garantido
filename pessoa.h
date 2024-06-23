@@ -1,10 +1,12 @@
+#ifndef PERSSOA_H
+#define PERSSOA_H
+
 #include <iostream>
 #include <string>
 #include <stdio.h>
 #include <string>
 
 using namespace std;
-
 class Person
 {
     private:
@@ -20,3 +22,4 @@ class Person
         void setNome();
         void setTelefone();
 };
+#endif
