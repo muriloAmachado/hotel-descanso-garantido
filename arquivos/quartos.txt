@@ -1,0 +1,4 @@
+Número: 123
+Hóspedes: 2
+Diária: 100.00
+Status: Disponivel
