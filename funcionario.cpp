@@ -18,18 +18,55 @@ float Funcionario::getSalario(){
 }
 
 // ------- METODOS SETERS ----------- //
-void Funcionario::setCargo(){
-    string x;
-    printf("Cargo do funcionario:");
-    getline(cin, x);
+void Funcionario::setCargo(string& x){
     cargo = x;
 };
 
-void Funcionario::setSalario(){
-    float x;
-    printf("Salário do funcionário:");
-    fflush(stdin);
-    scanf("%f", &x);
+void Funcionario::setSalario(float x){
     salario = x;
-    cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+};
+
+// ------- ESCREVENDO NO ARQUIVO O NOVO CADASTRO ----------- //
+
+void cadFuncionario(int cod,const char *nome,const char *telefone,const char *cargo, float salario){
+    FILE *file = fopen("arquivos/funcionarios.txt", "a");
+    if (file == NULL) {
+        cerr << "Erro ao abrir o arquivo\n";
+        exit(EXIT_FAILURE);
+    }
+    fprintf(file, "Código: %i\nNome: %s\nTelefone: %s\nCargo: %s\nSalario: %.2f\n\n", cod, nome, telefone, cargo, salario);
+    
+    fclose(file);
+};
+
+// ------- CHAMADA DE MÉTODOS PARA GRAVAR OS DADOS DO NOVO CLIENTE ---------- //
+void Funcionario::newFuncionario(){
+
+    int cod;
+    string name, tel, cargo;
+    float salario;
+
+    cout << "Digite o código do funcionário: ";
+    cin >> cod;
+    cin.ignore(); // Ignorar o '\n' restante no buffer de entrada
+    setCodigo(cod);
+
+    cout << "Digite o nome do funcionário: ";
+    getline(cin, name);
+    setNome(name);
+
+    cout << "Digite o telefone do funcionário: ";
+    getline(cin, tel);
+    setTelefone(tel);
+
+    cout << "Digite o cargo do funcionário: ";
+    getline(cin, cargo);
+    setCargo(cargo);
+
+    cout << "Digite o salário do funcionário: ";
+    cin >> salario;
+    cin.ignore();
+    setSalario(salario);
+
+    cadFuncionario(cod, name.c_str(), tel.c_str(), cargo.c_str(), salario);
 };

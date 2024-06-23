@@ -17,7 +17,8 @@ class Funcionario: public Person
         Funcionario();
         string getCargo();
         float getSalario();
-        void setCargo();
-        void setSalario();
+        void setCargo(string& x);
+        void setSalario(float x);
+        void newFuncionario();
 };
 #endif

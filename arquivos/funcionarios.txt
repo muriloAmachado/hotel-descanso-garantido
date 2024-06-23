@@ -1,0 +1,6 @@
+Código: 123
+Nome: pedro augusto
+Telefone: 4687437889853
+Cargo: padeiro
+Salario: 2356.50
+

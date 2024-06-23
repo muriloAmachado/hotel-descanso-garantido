@@ -18,6 +18,8 @@ void Cliente::setEndereco(string& end){
     endereco = end;
 };
 
+// ------- ESCREVENDO NO ARQUIVO O NOVO CADASTRO ----------- //
+
 void cadClient(int cod,const char *nome,const char *telefone,const char *endereco){
     FILE *file = fopen("arquivos/clientes.txt", "a");
     if (file == NULL) {
@@ -29,6 +31,7 @@ void cadClient(int cod,const char *nome,const char *telefone,const char *enderec
     fclose(file);
 };
 
+// ------- CHAMADA DE MÉTODOS PARA GRAVAR OS DADOS DO NOVO CLIENTE ---------- //
 void Cliente::newClient(){
 
     int cod;

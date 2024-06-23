@@ -76,7 +76,6 @@ void menuCliente (){
     cout << "9 - Voltar" << endl;
 
     cout << "Escolha a opção: ";
-
     cin >> optionMenuCliente;
 
     switch (optionMenuCliente)
@@ -94,6 +93,8 @@ void menuCliente (){
 }
 
 void menuFuncionario (){
+    Funcionario funcionario;
+
     int optionMenuFuncionario;
 
     cout << "1 - Cadastrar novo funcionario" << endl;
@@ -107,7 +108,7 @@ void menuFuncionario (){
     switch (optionMenuFuncionario)
     {
     case 1:
-        cout << "kkkk" << endl; 
+        funcionario.newFuncionario(); 
         break;
     case 2:
         cout << "2kkkk" << endl; 

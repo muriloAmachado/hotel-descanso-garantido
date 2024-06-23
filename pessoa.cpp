@@ -30,6 +30,5 @@ void Person::setNome(string& name){
 };
 
 void Person::setTelefone(string& tel){
-    
     telefone = tel;
 };
