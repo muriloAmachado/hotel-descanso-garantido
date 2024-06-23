@@ -193,27 +193,46 @@ void cadEstadia(int idCliente, int numeroQuarto, const string& dataEntrada, cons
     atualizarContadorId(novoId);
 }
 
+int acharQuarto(int numHospedes, string dataEntrada, string dataSaida) {
+    ifstream file("arquivos/quartos.txt");
+    if (!file.is_open()) {
+        cerr << "Erro ao abrir o arquivo\n";
+        exit(EXIT_FAILURE);
+    }
+
+    string line;
+    int numeroQuarto, capacidade;
+    while (getline(file, line)) {
+        if (sscanf(line.c_str(), "Número do Quarto: %d", &numeroQuarto) == 1) {
+            getline(file, line);
+            capacidade = stoi(line.substr(11));
+            if (capacidade >= numHospedes && estadiaDisponivel(numeroQuarto, dataEntrada, dataSaida)) {
+                return numeroQuarto;
+            }
+        }
+    }
+    return -1;
+}
+
 void Estadia::newEstadia() {
+    int numHospedes;
     cout << "Data de Entrada: ";
     cin >> dataEntrada;
     cout << "Data de Saída: ";
     cin >> dataSaida;
+    cout << "Quantidade de Hóspedes: ";
+    cin >> numHospedes;
     cout << "ID Cliente: ";
     cin >> idCliente;
-    cout << "Número do Quarto: ";
-    cin >> numeroQuarto;
     const int diarias = dateIntoDays(dataSaida) - dateIntoDays(dataEntrada);
     if(!estadiaDisponivel(numeroQuarto, dataEntrada, dataSaida)) {
         cout << "Estadia não disponível para o quarto selecionado\n";
         return;
     }
-    cadEstadia(idCliente, numeroQuarto, dataEntrada, dataSaida, diarias);
+    int quartoEncontrado = acharQuarto(numHospedes, dataEntrada, dataSaida);
+    if(quartoEncontrado == -1) {
+        cout << "Não há quartos disponíveis para a quantidade de hóspedes\n";
+        return;
+    }
+    cadEstadia(idCliente, quartoEncontrado, dataEntrada, dataSaida, diarias);
 }
-
-// function acharQuartos(int numeroHospdes) {
-//     acessar o arquivo de quarto;
-//     procurar por quartos com capacidade >= numeroHospedes;
-//     retornar os quartos encontrados;
-// }    
-//     cadastrar a estadia;
-// }
