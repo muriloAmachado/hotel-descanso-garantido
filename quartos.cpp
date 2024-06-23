@@ -12,7 +12,14 @@ Quarto::Quarto(){};
 int Quarto::getNumQuarto(){
     return numQuarto;
 }
-
-int Quarto::hospedes(){
+int Quarto::getHospedes(){
     return hospedes;
 }
+float Quarto::getDiaria(){
+    return diaria;
+}
+bool Quarto::getStatus(){
+    return status;
+}
+//-----------set----------//
+void Quarto::setNumQuarto(){}
