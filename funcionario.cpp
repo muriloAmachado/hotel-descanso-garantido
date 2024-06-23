@@ -132,7 +132,7 @@ bool Funcionario::searchExists(Funcionario& funcionarioEncontrado) {
                     cargo = line.substr(7); // Ignora "Cargo: "
                 }
                 if (getline(file, line) && line.find("Salario: ") == 0) {
-                    sscanf(line.c_str(), "Salario: %.2f", &salario);
+                    sscanf(line.c_str(), "Salario: %f", &salario);
                 }
 
                 funcionarioEncontrado.setCodigo(cod);

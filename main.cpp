@@ -154,7 +154,10 @@ void menuEstadia (){
         estadia.newEstadia(); 
         break;
     case 2:
-        cout << "2kkkk" << endl; 
+        cout << "Digite o ID da estadia: ";
+        int idEstadia;
+        cin >> idEstadia;
+        estadia.checkout(idEstadia); 
         break;
     case 9:
         return; 
