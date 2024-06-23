@@ -19,7 +19,7 @@ class Estadia {
         Estadia();
         string getDataEntrada();
         string getDataSaida();
-        string getDiarias();
+        int getDiarias();
         int getIdCliente();
         int getNumeroQuarto();
         void setDataEntrada(string& x);

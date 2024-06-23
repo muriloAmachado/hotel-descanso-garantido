@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -9,6 +10,46 @@
 using namespace std;
 
 Estadia::Estadia(){};
+
+string Estadia::getDataEntrada() {
+    return dataEntrada;
+}
+
+string Estadia::getDataSaida() {
+    return dataSaida;
+}
+
+int Estadia::getDiarias() {
+    return diarias;
+}
+
+int Estadia::getIdCliente() {
+    return idCliente;
+}
+
+int Estadia::getNumeroQuarto() {
+    return numeroQuarto;
+}
+
+void Estadia::setDataEntrada(string& x) {
+    dataEntrada = x;
+}
+
+void Estadia::setDataSaida(string& x) {
+    dataSaida = x;
+}
+
+void Estadia::setDiarias(int x) {
+    diarias = x;
+}
+
+void Estadia::setIdClient(int x) {
+    idCliente = x;
+}
+
+void Estadia::setNumeroQuarto(int x) {
+    numeroQuarto = x;
+}
 
 tm stringToTm(const string& date) {
     std::tm tm = {};
@@ -106,4 +147,18 @@ void cadEstadia(int idCliente, int numeroQuarto, const string& dataEntrada, cons
     appendFile.close();
 
     atualizarContadorId(novoId);
+}
+
+void Estadia::newEstadia() {
+    cout << "Data de Entrada: ";
+    cin >> dataEntrada;
+    cout << "Data de Saída: ";
+    cin >> dataSaida;
+    cout << "Diárias: ";
+    cin >> diarias;
+    cout << "ID Cliente: ";
+    cin >> idCliente;
+    cout << "Número do Quarto: ";
+    cin >> numeroQuarto;
+    cadEstadia(idCliente, numeroQuarto, dataEntrada, dataSaida, diarias);
 }
