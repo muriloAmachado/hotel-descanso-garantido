@@ -19,17 +19,17 @@ float Funcionario::getSalario(){
 
 // ------- METODOS SETERS ----------- //
 void Funcionario::setCargo(){
-   string x;
+    string x;
     printf("Cargo do funcionario:");
     getline(cin, x);
     cargo = x;
 };
 
 void Funcionario::setSalario(){
-    float teste;
+    float x;
     printf("Salário do funcionário:");
     fflush(stdin);
-    scanf("%f", &teste);
-    salario = teste;
+    scanf("%f", &x);
+    salario = x;
     cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
 };

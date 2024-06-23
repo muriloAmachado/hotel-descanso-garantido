@@ -21,26 +21,15 @@ string Person::getTelefone(){
 }
 
 // ------- METODOS SETERS ----------- //
-void Person::setCodigo(){
-    int code;
-    printf("Digite um codigo:");
-    fflush(stdin);
-    scanf("%i", &code);
-    codigo = code;
-
-    cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+void Person::setCodigo(int cod){
+    codigo = cod;
 };
 
-void Person::setNome(){
-    string name;
-    printf("Digite um nome:");
-    getline(cin, name);
+void Person::setNome(string& name){
     nome = name;
 };
 
-void Person::setTelefone(){
-    string tel;
-    printf("Digite um telefone:");
-    getline(cin, tel);
+void Person::setTelefone(string& tel){
+    
     telefone = tel;
 };

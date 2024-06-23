@@ -10,8 +10,10 @@ class Cliente: public Person
 {
     private:
         string endereco;
+        // void cadClient(int cod, const char *nome,const char *telefone,const char *endereco);
     public:
         Cliente();
         string getEndereco();
-        void setEndereco();
+        void setEndereco(string& endereco);
+        void newClient();
 };

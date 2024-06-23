@@ -18,8 +18,8 @@ class Person
         int getCodigo();
         string getNome();
         string getTelefone();
-        void setCodigo();
-        void setNome();
-        void setTelefone();
+        void setCodigo(int cod);
+        void setNome(string& name);
+        void setTelefone(string& tel);
 };
 #endif
