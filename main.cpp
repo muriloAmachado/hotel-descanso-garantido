@@ -100,7 +100,7 @@ void menuFuncionario (){
         funcionario.newFuncionario(); 
         break;
     case 2:
-        
+        funcionario.searchExists(funcionario);
         break;
     case 9:
         return; 
