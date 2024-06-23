@@ -96,5 +96,4 @@ void Funcionario::newFuncionario(){
     else{
         cadFuncionario(cod, name.c_str(), tel.c_str(), cargo.c_str(), salario);
     };
-
 };
