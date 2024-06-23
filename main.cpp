@@ -136,6 +136,8 @@ void menuQuartos (){
 }
 
 void menuEstadia (){
+    Estadia estadia;
+
     int optionMenuEstadia;
 
     cout << "1 - Cadastrar nova estadia" << endl;

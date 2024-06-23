@@ -8,10 +8,12 @@
 
 using namespace std;
 
-std::tm stringToTm(const string& date) {
+Estadia::Estadia(){};
+
+tm stringToTm(const string& date) {
     std::tm tm = {};
     std::istringstream ss(date);
-    ss >> std::get_time(&tm, "%Y-%m-%d");
+    ss >> get_time(&tm, "%Y-%m-%d");
     return tm;
 }
 

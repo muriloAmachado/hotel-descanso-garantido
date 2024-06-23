@@ -2,7 +2,6 @@
 #define ESTADIA_H
 
 #include "pessoa.h"
-#include "estadia.h"
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -30,3 +29,4 @@ class Estadia {
         void setNumeroQuarto(int x);
         void newEstadia();
 };   
+#endif
