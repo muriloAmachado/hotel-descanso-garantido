@@ -213,5 +213,7 @@ void Estadia::newEstadia() {
 // function acharQuartos(int numeroHospdes) {
 //     acessar o arquivo de quarto;
 //     procurar por quartos com capacidade >= numeroHospedes;
+//     retornar os quartos encontrados;
+// }    
 //     cadastrar a estadia;
 // }
