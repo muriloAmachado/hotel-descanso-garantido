@@ -72,7 +72,7 @@ void menuCliente (){
         break;
 
     case 2:
-     
+        cliente.searchExists(cliente);
         break;
 
     case 9:
