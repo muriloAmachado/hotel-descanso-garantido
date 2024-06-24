@@ -91,7 +91,7 @@ void Funcionario::newFuncionario(){
     setSalario(salario);
 
     if(functionaryExists(cod) == true){
-        cout << "Já existe um cliente com este código" << endl;
+        cout << "Já existe um funcionario com este código" << endl;
         newFuncionario();
     }
     else{
