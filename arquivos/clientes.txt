@@ -2,19 +2,35 @@ Código: 123
 Nome: jkmgfd
 Telefone: sjfs
 Endereço: hfgs
+Pontos: 40
 
 Código: 456
 Nome: jdghfj
 Telefone: kmkjgfdk
 Endereço: kfjhgkf
+Pontos: 0
 
 Código: 75
 Nome: fsgh
 Telefone: hsfg
 Endereço: sfhg
+Pontos: 0
 
 Código: 98
 Nome: edson claudin
 Telefone: 123456987
 Endereço: rua da água
+Pontos: 0
+
+Código: 666
+Nome: Belzebu
+Telefone: 31 666
+Endereço: Inferninho
+Pontos: 0
+
+Código: 999
+Nome: A Imensa
+Telefone: 3123124
+Endereço: Oceano
+Pontos: 0
 
