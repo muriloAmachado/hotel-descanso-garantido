@@ -172,8 +172,8 @@ void Cliente::estadiasDoCliente() {
         if (line.find("ID Cliente: ") == 0) {
             sscanf(line.c_str(), "ID Cliente: %d", &codCliente);
             if (codCliente == code) {
-                if (getline(file, line) && line.find("ID Quarto: ") == 0) {
-                    sscanf(line.c_str(), "ID Quarto: %d", &codQuarto);
+                if (getline(file, line) && line.find("Número do Quarto: ") == 0) {
+                    sscanf(line.c_str(), "Número do Quarto: %d", &codQuarto);
                 }
                 if (getline(file, line) && line.find("Data de Entrada: ") == 0) {
                     dataEntrada = line.substr(17); // Ignora "Data de Entrada: "
@@ -187,7 +187,7 @@ void Cliente::estadiasDoCliente() {
 
                 cout << "Estadia encontrada:\n";
                 cout << "ID Cliente: " << codCliente << "\n";
-                cout << "ID Quarto: " << codQuarto << "\n";
+                cout << "Número do Quarto: " << codQuarto << "\n";
                 cout << "Data de Entrada: " << dataEntrada << "\n";
                 cout << "Data de Saída: " << dataSaida << "\n";
                 cout << "Diárias: " << diarias << "\n\n";
