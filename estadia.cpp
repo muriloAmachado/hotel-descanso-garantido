@@ -262,6 +262,44 @@ float valorDiaria(int idQuarto) {
     return -1;
 }
 
+void pontosFidelidade(int idCliente, int diarias) {
+    std::ifstream file("arquivos/clientes.txt");
+    if (!file.is_open()) {
+        std::cerr << "Erro ao abrir o arquivo\n";
+        exit(EXIT_FAILURE);
+    }
+
+    std::vector<std::string> lines;
+    std::string line;
+    bool modifyNextLine = false;
+    int lineCount = 0;
+    while (getline(file, line)) {
+        int idClienteEncontrado;
+        if (sscanf(line.c_str(), "Código: %d", &idClienteEncontrado) == 1) {
+            if (idCliente == idClienteEncontrado) {
+                modifyNextLine = true;
+                lineCount = 0;
+            }
+        }
+        if (modifyNextLine) {
+            lineCount++;
+            if (lineCount == 5) {
+                int pontos = stoi(line.substr(8)) + diarias * 10;
+                line = "Pontos: " + std::to_string(pontos);
+                modifyNextLine = false;
+            }
+        }
+        lines.push_back(line);
+    }
+    file.close();
+
+    std::ofstream outFile("arquivos/clientes.txt");
+    for (const auto& modifiedLine : lines) {
+        outFile << modifiedLine << "\n";
+    }
+    outFile.close();
+}
+
 void Estadia::checkout(int idEstadia) {
     ifstream file("arquivos/estadias.txt");
     if (!file.is_open()) {
@@ -271,6 +309,7 @@ void Estadia::checkout(int idEstadia) {
 
     string line;
     int idEstadiaEncontrada;
+    int idCliente;
     int diarias;
     float conta;
     int idQuarto;
@@ -278,16 +317,17 @@ void Estadia::checkout(int idEstadia) {
         if (sscanf(line.c_str(), "ID Estadia: %d", &idEstadiaEncontrada) == 1) {
             getline(file, line);
             if (idEstadia == idEstadiaEncontrada) {
+                idCliente = line.find("ID Cliente: ") == 0 ? stoi(line.substr(12)) : 0;
                 getline(file, line);
                 idQuarto = line.find("Número do Quarto: ") == 0 ? stoi(line.substr(18)) : 0;
                 getline(file, line);
                 getline(file, line);
                 getline(file, line);
                 diarias = line.find("Diárias: ") == 0 ? stoi(line.substr(9)) : 0;
-                printf("diarias: %d\n", diarias);
 
                 conta = diarias * valorDiaria(idQuarto);
                 cout << "Valor a ser pago: R$" << conta << "\n";
+                pontosFidelidade(idCliente, diarias);
                 return;
             }
         }

@@ -14,20 +14,28 @@ string Cliente::getEndereco(){
     return endereco;
 }
 
+int Cliente::getPontos(){
+    return pontos;
+}
+
 // ------- METODOS SETERS ----------- //
 void Cliente::setEndereco(string& end){
     endereco = end;
 };
 
+void Cliente::setPoints(int x){
+    pontos = x;
+};
+
 // ------- ESCREVENDO NO ARQUIVO O NOVO CADASTRO ----------- //
 
-void cadClient(int cod,const char *nome,const char *telefone,const char *endereco){
+void cadClient(int cod,const char *nome,const char *telefone,const char *endereco, int pontos){
     FILE *file = fopen("arquivos/clientes.txt", "a");
     if (file == NULL) {
         cerr << "Erro ao abrir o arquivo\n";
         exit(EXIT_FAILURE);
     }
-    fprintf(file, "Código: %i\nNome: %s\nTelefone: %s\nEndereço: %s\n\n", cod, nome, telefone, endereco);
+    fprintf(file, "Código: %i\nNome: %s\nTelefone: %s\nEndereço: %s\nPontos: %d\n\n", cod, nome, telefone, endereco, pontos);
     
     fclose(file);
 };
@@ -81,7 +89,7 @@ void Cliente::newClient(){
         newClient();
     }
     else{
-        cadClient(cod, name.c_str(), tel.c_str(), end.c_str());
+        cadClient(cod, name.c_str(), tel.c_str(), end.c_str(), 0);
     };
 };
 
@@ -116,17 +124,22 @@ bool Cliente::searchExists(Cliente& clienteEncontrado) {
                 if (getline(file, line) && line.find("Endereço: ") == 0) {
                     endereco = line.substr(10); // Ignora "Endereço: "
                 }
+                if (getline(file, line) && line.find("Pontos: ") == 0) {
+                    clienteEncontrado.setPoints(stoi(line.substr(8))); // Ignora "Pontos: "
+                }
 
                 clienteEncontrado.setCodigo(cod);
                 clienteEncontrado.setNome(nome);
                 clienteEncontrado.setTelefone(telefone);
                 clienteEncontrado.setEndereco(endereco);
+                clienteEncontrado.setPoints(0);
 
                 cout << "Cliente encontrado:\n";
                 cout << "Código: " << clienteEncontrado.getCodigo() << "\n";
                 cout << "Nome: " << clienteEncontrado.getNome() << "\n";
                 cout << "Telefone: " << clienteEncontrado.getTelefone() << "\n";
                 cout << "Endereço: " << clienteEncontrado.getEndereco() << "\n";
+                cout << "Pontos: " << clienteEncontrado.getPontos() << "\n";
 
                 file.close();
                 return true;
