@@ -15,18 +15,17 @@ void menuQuartos();
 void menuEstadia();
 
 int main() {
-
     int option;
         cout << "----------------------" << endl;
         cout << "---------MENU---------" << endl;
         cout << "----------------------" << endl;
 
         cout << "1 - Clientes" << endl;
-        cout << "2 - Funcionários" << endl;
+        cout << "2 - Funcionarios" << endl;
         cout << "3 - Quartos" << endl;
         cout << "4 - Estadias" << endl;
         cout << "0 - Sair" << endl;
-        cout << "Escolha a opção: ";
+        cout << "Escolha a opcao: ";
         cin >> option;
     menu(option);
 
@@ -64,7 +63,7 @@ void menuCliente (){
     cout << "3 - Pesquisar estadias do cliente" << endl;
     cout << "9 - Voltar" << endl;
 
-    cout << "Escolha a opção: ";
+    cout << "Escolha a opcao: ";
     cin >> optionMenuCliente;
 
     switch (optionMenuCliente){
@@ -93,7 +92,7 @@ void menuFuncionario (){
     cout << "2 - Pesquisar funcionario" << endl;
     cout << "9 - Voltar" << endl;
 
-    cout << "Escolha a opção: ";
+    cout << "Escolha a opcao: ";
 
     cin >> optionMenuFuncionario;
 
@@ -117,10 +116,9 @@ void menuQuartos (){
     int optionMenuQuartos;
 
     cout << "1 - Cadastrar novo quarto" << endl;
-    cout << "2 - Pesquisar quarto" << endl;
     cout << "9 - Voltar" << endl;
 
-    cout << "Escolha a opção: ";
+    cout << "Escolha a opcão: ";
 
     cin >> optionMenuQuartos;
 
@@ -128,9 +126,6 @@ void menuQuartos (){
     {
     case 1:
         quarto.newQuarto(); 
-        break;
-    case 2:
-        cout << "2kkkk" << endl; 
         break;
     case 9:
         return; 
@@ -147,7 +142,7 @@ void menuEstadia (){
     cout << "2 - Baixa em uma estadia" << endl;
     cout << "9 - Voltar" << endl;
 
-    cout << "Escolha a opção: ";
+    cout << "Escolha a opcao: ";
 
     cin >> optionMenuEstadia;
 
