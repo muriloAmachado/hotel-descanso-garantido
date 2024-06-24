@@ -150,3 +150,50 @@ bool Cliente::searchExists(Cliente& clienteEncontrado) {
     file.close();
     return false; // Cliente não encontrado
 }
+// Pesquisar Estadias do Cliente
+
+void Cliente::estadiasDoCliente() {
+    int code;
+
+    cout << "Digite o código do cliente que deseja encontrar: ";
+    cin >> code;
+
+    ifstream file("arquivos/estadias.txt");
+    if (!file.is_open()) {
+        cerr << "Não foi possível abrir o arquivo estadias.txt\n";
+        return;
+    }
+
+    string line;
+    int codCliente, codQuarto, diarias;
+    string dataEntrada, dataSaida;
+
+    while (getline(file, line)) {
+        if (line.find("ID Cliente: ") == 0) {
+            sscanf(line.c_str(), "ID Cliente: %d", &codCliente);
+            if (codCliente == code) {
+                if (getline(file, line) && line.find("ID Quarto: ") == 0) {
+                    sscanf(line.c_str(), "ID Quarto: %d", &codQuarto);
+                }
+                if (getline(file, line) && line.find("Data de Entrada: ") == 0) {
+                    dataEntrada = line.substr(17); // Ignora "Data de Entrada: "
+                }
+                if (getline(file, line) && line.find("Data de Saída: ") == 0) {
+                    dataSaida = line.substr(15); // Ignora "Data de Saída: "
+                }
+                if (getline(file, line) && line.find("Diárias: ") == 0) {
+                    sscanf(line.c_str(), "Diárias: %d", &diarias);
+                }
+
+                cout << "Estadia encontrada:\n";
+                cout << "ID Cliente: " << codCliente << "\n";
+                cout << "ID Quarto: " << codQuarto << "\n";
+                cout << "Data de Entrada: " << dataEntrada << "\n";
+                cout << "Data de Saída: " << dataSaida << "\n";
+                cout << "Diárias: " << diarias << "\n\n";
+            }
+        }
+    }
+
+    file.close();
+}

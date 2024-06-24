@@ -61,6 +61,7 @@ void menuCliente (){
 
     cout << "1 - Cadastrar novo cliente" << endl;
     cout << "2 - Pesquisar cliente" << endl;
+    cout << "3 - Pesquisar estadias do cliente" << endl;
     cout << "9 - Voltar" << endl;
 
     cout << "Escolha a opção: ";
@@ -74,7 +75,9 @@ void menuCliente (){
     case 2:
         cliente.searchExists(cliente);
         break;
-
+    case 3:
+        cliente.estadiasDoCliente();
+        break;
     case 9:
         return;
         break;

@@ -19,4 +19,5 @@ class Cliente: public Person
         void newClient();
         bool searchExists(Cliente& clienteEncontrado);
         void setPoints(int x);
+        void estadiasDoCliente();
 };

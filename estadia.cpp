@@ -10,7 +10,7 @@
 
 using namespace std;
 
-const array monthDaysArray = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+const int monthDaysArray[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 Estadia::Estadia(){};
 
