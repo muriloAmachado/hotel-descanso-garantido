@@ -28,5 +28,6 @@ class Estadia {
         void setIdClient(int x);
         void setNumeroQuarto(int x);
         void newEstadia();
+        void checkout(int x);
 };   
 #endif

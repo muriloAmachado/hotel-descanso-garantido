@@ -205,9 +205,6 @@ int acharQuarto(int numHospedes, string dataEntrada, string dataSaida) {
     while (getline(file, line)) {
         if (sscanf(line.c_str(), "Número: %d", &numeroQuarto) == 1) {
             getline(file, line);
-            // if (getline(file, line) && line.find("Hóspedes: ") == 0) {
-            //         capacidade = stoi(line.substr(10)); 
-            //     }
             capacidade = line.find("Hóspedes: ") == 0 ? stoi(line.substr(10)) : 0;
             printf("Capacidade: %d\n", capacidade);
             printf("numHostedes: %d\n", numHospedes);
@@ -238,4 +235,62 @@ void Estadia::newEstadia() {
     }
     cadEstadia(idCliente, quartoEncontrado, dataEntrada, dataSaida, diarias);
     cout << "Você foi alocado no quarto " << quartoEncontrado << "\n";
+}
+
+float valorDiaria(int idQuarto) {
+    ifstream file("arquivos/quartos.txt");
+    if (!file.is_open()) {
+        cerr << "Erro ao abrir o arquivo\n";
+        exit(EXIT_FAILURE);
+    }
+
+    printf("idQuarto: %d\n", idQuarto);
+
+    string line;
+    int numeroQuarto;
+    float valorDiaria;
+    while (getline(file, line)) {
+        if (sscanf(line.c_str(), "Número: %d", &numeroQuarto) == 1) {
+            getline(file, line);
+            getline(file, line);
+            valorDiaria = line.find("Diária: ") == 0 ? stof(line.substr(8)) : 0;
+            if (numeroQuarto == idQuarto) {
+                return valorDiaria;
+            }
+        }
+    }
+    return -1;
+}
+
+void Estadia::checkout(int idEstadia) {
+    ifstream file("arquivos/estadias.txt");
+    if (!file.is_open()) {
+        cerr << "Erro ao abrir o arquivo\n";
+        exit(EXIT_FAILURE);
+    }
+
+    string line;
+    int idEstadiaEncontrada;
+    int diarias;
+    float conta;
+    int idQuarto;
+    while (getline(file, line)) {
+        if (sscanf(line.c_str(), "ID Estadia: %d", &idEstadiaEncontrada) == 1) {
+            getline(file, line);
+            if (idEstadia == idEstadiaEncontrada) {
+                getline(file, line);
+                idQuarto = line.find("Número do Quarto: ") == 0 ? stoi(line.substr(18)) : 0;
+                getline(file, line);
+                getline(file, line);
+                getline(file, line);
+                diarias = line.find("Diárias: ") == 0 ? stoi(line.substr(9)) : 0;
+                printf("diarias: %d\n", diarias);
+
+                conta = diarias * valorDiaria(idQuarto);
+                cout << "Valor a ser pago: R$" << conta << "\n";
+                return;
+            }
+        }
+    }
+    cout << "Estadia não encontrada\n";
 }
