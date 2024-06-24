@@ -1,19 +1,18 @@
 Código: 123
-Nome: jkmgfd
-Telefone: sjfs
-Endereço: hfgs
+Nome: cleison
+Telefone: 32 9000-3456
+Endereço: rua halal, 134
 Pontos: 40
 
 Código: 456
-Nome: jdghfj
-Telefone: kmkjgfdk
-Endereço: kfjhgkf
+Nome: Mario
+Telefone: 31 93245-2345
 Pontos: 0
 
 Código: 75
-Nome: fsgh
-Telefone: hsfg
-Endereço: sfhg
+Nome: jeferson
+Telefone: 31 98346-3456
+Endereço: Rua 1234
 Pontos: 0
 
 Código: 98
@@ -22,15 +21,14 @@ Telefone: 123456987
 Endereço: rua da água
 Pontos: 0
 
-Código: 666
-Nome: Belzebu
-Telefone: 31 666
-Endereço: Inferninho
-Pontos: 0
 
-Código: 999
-Nome: A Imensa
-Telefone: 3123124
-Endereço: Oceano
-Pontos: 0
+
+
+
+
+Código: 1234
+Nome: otavio
+Telefone: 31 93425246
+Endereço: rua 1232
+Pontos: 70
 

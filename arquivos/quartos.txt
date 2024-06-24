@@ -2,3 +2,14 @@ Número: 123
 Hóspedes: 2
 Diária: 100.00
 Status: Disponivel
+
+Número: 1
+Hóspedes: 3
+Diária: 150.00
+Status: Disponivel
+
+
+Número: 2
+Hóspedes: 1
+Diária: 200.00
+Status: Disponivel

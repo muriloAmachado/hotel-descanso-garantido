@@ -1,6 +1,18 @@
 Código: 123
 Nome: pedro augusto
-Telefone: 4687437889853
+Telefone: 46 97437-8898
 Cargo: padeiro
 Salario: 2356.50
+
+Código: 1
+Nome: luiz
+Telefone: 31 9234524563
+Cargo: recepcionista
+Salario: 2500.00
+
+Código: 2
+Nome: pedro
+Telefone: 31 293854729
+Cargo: cozinheiro
+Salario: 1500.00
 
