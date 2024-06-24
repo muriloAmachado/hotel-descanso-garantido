@@ -61,7 +61,7 @@ bool functionaryExists(int cod) {
     return false;
 }
 
-// ------- CHAMADA DE MÉTODOS PARA GRAVAR OS DADOS DO NOVO CLIENTE ---------- //
+// ------- CHAMADA DE MÉTODOS PARA GRAVAR OS DADOS DO NOVO Funcionário ---------- //
 void Funcionario::newFuncionario(){
 
     int cod;
@@ -91,7 +91,7 @@ void Funcionario::newFuncionario(){
     setSalario(salario);
 
     if(functionaryExists(cod) == true){
-        cout << "Já existe um funcionario com este código" << endl;
+        cout << "Já existe um funcionário com este código" << endl;
         newFuncionario();
     }
     else{
@@ -99,17 +99,17 @@ void Funcionario::newFuncionario(){
     };
 };
 
-// ------- PESQUISAR CLIENTE ---------- //
+// ------- PESQUISAR Funcionário ---------- //
 bool Funcionario::searchExists(Funcionario& funcionarioEncontrado) {
      
      int code;
 
-     cout << "Digite o código do cliente que deseja encontrar: ";
+     cout << "Digite o código do funcionário que deseja encontrar: ";
      cin >> code;
 
     ifstream file("arquivos/funcionarios.txt");
     if (!file.is_open()) {
-        cerr << "Não foi possível abrir o arquivo clientes.txt\n";
+        cerr << "Não foi possível abrir o arquivo funcionarios.txt\n";
         return false;
     }
 
@@ -155,5 +155,5 @@ bool Funcionario::searchExists(Funcionario& funcionarioEncontrado) {
     }
 
     file.close();
-    return false; // Cliente não encontrado
+    return false; // Funcionário não encontrado
 }

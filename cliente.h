@@ -16,4 +16,5 @@ class Cliente: public Person
         void setEndereco(string& endereco);
         void newClient();
         bool searchExists(Cliente& clienteEncontrado);
+        void estadiasDoCliente();
 };

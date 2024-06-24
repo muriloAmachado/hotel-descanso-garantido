@@ -61,6 +61,7 @@ void menuCliente (){
 
     cout << "1 - Cadastrar novo cliente" << endl;
     cout << "2 - Pesquisar cliente" << endl;
+    cout << "3 - Pesquisar estadias do cliente" << endl;
     cout << "9 - Voltar" << endl;
 
     cout << "Escolha a opção: ";
@@ -73,6 +74,10 @@ void menuCliente (){
 
     case 2:
         cliente.searchExists(cliente);
+        break;
+
+    case 3:
+        cliente.estadiasDoCliente();
         break;
 
     case 9:
@@ -114,7 +119,6 @@ void menuQuartos (){
     int optionMenuQuartos;
 
     cout << "1 - Cadastrar novo quarto" << endl;
-    cout << "2 - Pesquisar quarto" << endl;
     cout << "9 - Voltar" << endl;
 
     cout << "Escolha a opção: ";
@@ -125,9 +129,6 @@ void menuQuartos (){
     {
     case 1:
         quarto.newQuarto(); 
-        break;
-    case 2:
-        cout << "2kkkk" << endl; 
         break;
     case 9:
         return; 
